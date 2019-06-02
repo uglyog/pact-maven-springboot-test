@@ -34,6 +34,17 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>au.com.dius</groupId>
+      <artifactId>pact-jvm-provider-maven_2.12</artifactId>
+      <version>3.6.8</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -84,6 +95,19 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>au.com.dius</groupId>
+        <artifactId>pact-jvm-provider-maven_2.12</artifactId>
+        <version>3.6.8</version>
+        <configuration>
+          <serviceProviders>
+            <serviceProvider>
+              <name>spring-boot-maven-provider</name>
+              <pactFileDirectory>src/test/resources/pacts</pactFileDirectory>
+            </serviceProvider>
+          </serviceProviders>
+        </configuration>
       </plugin>
     </plugins>
   </build>
