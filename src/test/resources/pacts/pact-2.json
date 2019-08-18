@@ -10,18 +10,16 @@
       "description": "a retrieve Mallory request",
       "request": {
         "method": "GET",
-        "path": "/mallory",
-        "query": {
-          "name": ["ron"],
-          "status": ["good"]
-        }
+        "path": "/greeting"
       },
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "text/html"
+          "Content-Type": "application/json"
         },
-        "body": "\"That is some good Mallory.\""
+        "body": {
+          "name": "ç é à í"
+        }
       }
     }
   ],
