@@ -1,0 +1,6 @@
+pactbroker:
+  host: test.pact.dius.com.au
+pactBrokerUser: ""
+pactBrokerPassword: ""
+
+logging.level.au.com.dius.pact: DEBUG

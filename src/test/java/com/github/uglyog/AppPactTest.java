@@ -1,6 +1,8 @@
 package com.github.uglyog;
 
 import au.com.dius.pact.provider.junit.Provider;
+import au.com.dius.pact.provider.junit.loader.PactBroker;
+import au.com.dius.pact.provider.junit.loader.PactBrokerAuth;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
 import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
@@ -14,9 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @RunWith(SpringRestPactRunner.class)
 @Provider("spring-boot-maven-provider")
-//@PactBroker(scheme = "https", host = "${pactBrokerHost}", port = "443",
-//  authentication = @PactBrokerAuth(username = "${pactBrokerUser}", password = "${pactBrokerPassword}"))
-@PactFolder("pacts")
+@PactBroker(authentication = @PactBrokerAuth(scheme = "bearer", username = "${pactBrokerUser}", password = "${pactBrokerPassword}"))
+//@PactFolder("pacts")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class AppPactTest
 {
