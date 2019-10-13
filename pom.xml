@@ -41,14 +41,14 @@
     </dependency>
     <dependency>
       <groupId>au.com.dius</groupId>
-      <artifactId>pact-jvm-provider-maven_2.12</artifactId>
-      <version>3.6.14</version>
+      <artifactId>pact-jvm-provider-maven</artifactId>
+      <version>4.0.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>au.com.dius</groupId>
-      <artifactId>pact-jvm-provider-spring_2.12</artifactId>
-      <version>3.6.14</version>
+      <artifactId>pact-jvm-provider-spring</artifactId>
+      <version>4.0.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -104,8 +104,8 @@
       </plugin>
       <plugin>
         <groupId>au.com.dius</groupId>
-        <artifactId>pact-jvm-provider-maven_2.12</artifactId>
-        <version>3.6.14</version>
+        <artifactId>pact-jvm-provider-maven</artifactId>
+        <version>4.0.0</version>
         <configuration>
           <serviceProviders>
             <serviceProvider>
