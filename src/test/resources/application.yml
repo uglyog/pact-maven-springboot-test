@@ -1,6 +1,8 @@
 pactbroker:
   host: test.pact.dius.com.au
-pactBrokerUser: ""
-pactBrokerPassword: ""
+pactBrokerToken: ""
 
-logging.level.au.com.dius.pact: DEBUG
+logging:
+  level:
+    root: ERROR
+logging.level.au.com.dius.pact: ERROR

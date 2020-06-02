@@ -6,7 +6,7 @@
 
   <groupId>com.github.uglyog</groupId>
   <artifactId>pact-maven-sprintboot-test</artifactId>
-  <version>1.0</version>
+  <version>2.0.5</version>
 
   <name>pact-maven-sprintboot-test</name>
   <url>https://github.com/uglyog/pact-maven-springboot-test</url>
@@ -38,17 +38,29 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
-      <groupId>au.com.dius</groupId>
-      <artifactId>pact-jvm-provider-maven</artifactId>
-      <version>4.0.0</version>
+      <groupId>au.com.dius.pact.provider</groupId>
+      <artifactId>maven</artifactId>
+      <version>4.1.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>au.com.dius</groupId>
-      <artifactId>pact-jvm-provider-spring</artifactId>
-      <version>4.0.0</version>
+      <groupId>au.com.dius.pact.provider</groupId>
+      <artifactId>spring</artifactId>
+      <version>4.1.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -103,14 +115,20 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
       <plugin>
-        <groupId>au.com.dius</groupId>
-        <artifactId>pact-jvm-provider-maven</artifactId>
-        <version>4.0.0</version>
+        <groupId>au.com.dius.pact.provider</groupId>
+        <artifactId>maven</artifactId>
+        <version>4.1.0</version>
         <configuration>
           <serviceProviders>
             <serviceProvider>
-              <name>spring-boot-maven-provider</name>
-              <pactFileDirectory>src/test/resources/pacts</pactFileDirectory>
+              <name>ArticlesProviderDemo</name>
+              <PactBroker>
+                <url>https://test.pact.dius.com.au/</url>
+                <authentication>
+                  <token></token>
+                </authentication>
+              </PactBroker>
+              <stateChangeUrl>http://localhost:8080/statechange</stateChangeUrl>
             </serviceProvider>
           </serviceProviders>
         </configuration>
